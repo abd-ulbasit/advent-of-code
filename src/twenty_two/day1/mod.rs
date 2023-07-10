@@ -38,6 +38,29 @@ pub fn part_one() -> i32 {
 
 pub fn part_two() -> i32 {
     let file = File::open("./src/twenty_two/day1/input.txt").unwrap();
+    let reader = BufReader::new(file);
+    let mut sum = 0;
+    let mut maxes = [0; 3];
 
-    0
+    for line in reader.lines() {
+        if let Ok(line) = line {
+            if line.is_empty() {
+                if sum > maxes[0] {
+                    maxes[0] = sum;
+                    maxes.sort();
+                }
+                sum = 0;
+            } else {
+                if let Ok(number) = line.parse::<i32>() {
+                    sum += number
+                }
+            }
+        }
+    }
+    let mut total = 0;
+    for i in maxes {
+        total += i;
+    }
+
+    total
 }
