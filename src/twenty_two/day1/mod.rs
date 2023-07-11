@@ -3,7 +3,7 @@ use std::{
     io::{BufRead, BufReader},
 };
 
-pub fn part_one() -> i32 {
+pub fn _part_one() -> i32 {
     let file = File::open("./src/twenty_two/day1/input.txt").expect("Failed to open file");
 
     // Create a BufReader to read the file line by line
@@ -36,7 +36,7 @@ pub fn part_one() -> i32 {
     max_sum
 }
 
-pub fn part_two() -> i32 {
+pub fn _part_two() -> i32 {
     let file = File::open("./src/twenty_two/day1/input.txt").unwrap();
     let reader = BufReader::new(file);
     let mut sum = 0;
