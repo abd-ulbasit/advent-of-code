@@ -1,6 +1,6 @@
-use std::{collections::HashMap, fs::File, hash::Hash, io::BufRead, io::BufReader};
+use std::{collections::HashMap, fs::File, io::BufRead, io::BufReader};
 
-pub fn part_one() -> i32 {
+pub fn _part_one() -> i32 {
     let file = File::open("./src/twenty_two/day2/input.txt").expect("Failed to open file");
 
     // Create a BufReader to read the file line by line
@@ -39,7 +39,7 @@ pub fn part_one() -> i32 {
     myscore
 }
 
-pub fn part_two() -> i32 {
+pub fn _part_two() -> i32 {
     let file = File::open("./src/twenty_two/day2/input.txt").expect("Failed to open file");
 
     // Create a BufReader to read the file line by line
