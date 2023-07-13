@@ -1,4 +1,4 @@
 mod twenty_two;
 fn main() {
-    println!("{}", twenty_two::day4::part_one());
+    println!("{}", twenty_two::day4::part_two());
 }
