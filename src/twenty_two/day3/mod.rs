@@ -39,7 +39,7 @@ pub fn _part_one() -> u32 {
     sum
 }
 
-pub fn part_two() -> u32 {
+pub fn _part_two() -> u32 {
     let mut priority_map: HashMap<char, u32> = HashMap::new();
 
     // Assign priorities for lowercase letters 'a' to 'z'
