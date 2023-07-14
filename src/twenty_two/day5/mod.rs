@@ -1,6 +1,6 @@
 use std::{fs::File, io::BufRead, io::BufReader};
 
-pub fn part_one() -> String {
+pub fn solution(secod_part: bool) -> String {
     let mut tops = String::new();
     let file = File::open("./src/twenty_two/day5/input.txt").unwrap();
     let reader = BufReader::new(file);
@@ -42,9 +42,19 @@ pub fn part_one() -> String {
                 to = value3;
             }
         }
-        for _ in 0..no_of_movements {
-            let top = stacks_vec[from].pop().unwrap();
-            stacks_vec[to].push(top);
+        if !secod_part {
+            for _ in 0..no_of_movements {
+                let top = stacks_vec[from].pop().unwrap();
+                stacks_vec[to].push(top);
+            }
+        } else {
+            let mut temp = vec![];
+            for _ in 0..no_of_movements {
+                temp.push(stacks_vec[from].pop().unwrap());
+            }
+            while let Some(top) = temp.pop() {
+                stacks_vec[to].push(top);
+            }
         }
     }
     for i in stacks_vec {
