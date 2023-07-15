@@ -1,6 +1,6 @@
 use std::{fs::File, io::BufRead, io::BufReader};
 
-pub fn solution(secod_part: bool) -> String {
+pub fn _solution(secod_part: bool) -> String {
     let mut tops = String::new();
     let file = File::open("./src/twenty_two/day5/input.txt").unwrap();
     let reader = BufReader::new(file);

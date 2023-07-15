@@ -27,7 +27,7 @@ pub fn _part_one() -> u32 {
     }
     count
 }
-pub fn part_two() -> u32 {
+pub fn _part_two() -> u32 {
     let mut count = 0;
     let file = File::open("./src/twenty_two/day4/input.txt").unwrap();
     let reader = BufReader::new(file);
