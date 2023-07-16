@@ -4,7 +4,7 @@ use std::{
     io::{BufRead, BufReader},
 };
 
-pub fn solution(_second: bool) -> i32 {
+pub fn solution(second: bool) -> i32 {
     let file = File::open("./src/twenty_two/day7/input.txt").unwrap();
     let reader = BufReader::new(file);
     let mut pwd: Vec<String> = vec![];
@@ -31,13 +31,23 @@ pub fn solution(_second: bool) -> i32 {
         }
     }
     println!("{:?}", csize);
-    csize
-        .values()
-        .filter(|&&val| val < 100000)
-        .collect::<Vec<&i32>>()
-        .iter()
-        .copied()
-        .sum()
+    if !second {
+        csize
+            .values()
+            .filter(|&&val| val < 100000)
+            .collect::<Vec<&i32>>()
+            .iter()
+            .copied()
+            .sum()
+    } else {
+        let deletion_required = 30000000 - (70000000 - csize.get("").unwrap());
+        let filtered: Vec<&i32> = csize
+            .values()
+            .filter(|&&val| val >= deletion_required)
+            .collect::<Vec<&i32>>();
+        println!("{:?}", filtered);
+        *filtered.iter().min().unwrap().clone()
+    }
 }
 
 fn prefixes(pwd: &[String]) -> Vec<String> {
@@ -45,5 +55,6 @@ fn prefixes(pwd: &[String]) -> Vec<String> {
     for i in 0..pwd.len() {
         prefixes.push(pwd[..=i].join("/"));
     }
+    prefixes.push("".to_string());
     prefixes
 }
