@@ -1,4 +1,4 @@
 mod twenty_two;
 fn main() {
-    println!("{}", twenty_two::day6::solution(true));
+    println!("{}", twenty_two::day7::solution(false));
 }
