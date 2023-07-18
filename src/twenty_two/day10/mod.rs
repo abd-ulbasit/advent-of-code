@@ -23,26 +23,29 @@ pub fn solution(second: bool) -> Result<i32, Box<dyn Error>> {
             match words.as_slice() {
                 &["addx", x] => {
                     let x = x.to_string().parse::<i32>()?;
-                    // println!("addx {}", x);
-                    if cycle_no % 40 == 0 {
-                        println!();
-                    }
-                    if (val - 1..=val + 1).contains(&(cycle_no % 40)) {
-                        print!("#");
-                    } else {
-                        print!(".");
+                    if second {
+                        if cycle_no % 40 == 0 {
+                            println!();
+                        }
+                        if (val - 1..=val + 1).contains(&(cycle_no % 40)) {
+                            print!("#");
+                        } else {
+                            print!(".");
+                        }
                     }
                     cycle_no += 1;
                     if cycle_list.contains(&cycle_no) {
                         sum += val * cycle_no;
                     }
-                    if cycle_no % 40 == 0 {
-                        println!();
-                    }
-                    if (val - 1..=val + 1).contains(&(cycle_no % 40)) {
-                        print!("#");
-                    } else {
-                        print!(".");
+                    if second {
+                        if cycle_no % 40 == 0 {
+                            println!();
+                        }
+                        if (val - 1..=val + 1).contains(&(cycle_no % 40)) {
+                            print!("#");
+                        } else {
+                            print!(".");
+                        }
                     }
                     cycle_no += 1;
                     val += x;
@@ -52,14 +55,18 @@ pub fn solution(second: bool) -> Result<i32, Box<dyn Error>> {
                 }
                 &["noop"] => {
                     // println!("Noop");
-                    if cycle_no % 40 == 0 {
-                        println!();
+                    if second {
+                        if cycle_no % 40 == 0 {
+                            println!();
+                        }
                     }
                     cycle_no += 1;
-                    if (val - 1..=val + 1).contains(&(cycle_no % 40)) {
-                        print!("#");
-                    } else {
-                        print!(".");
+                    if second {
+                        if (val - 1..=val + 1).contains(&(cycle_no % 40)) {
+                            print!("#");
+                        } else {
+                            print!(".");
+                        }
                     }
                     if cycle_list.contains(&cycle_no) {
                         sum += val * cycle_no;
