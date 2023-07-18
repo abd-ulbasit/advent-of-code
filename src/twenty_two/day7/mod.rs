@@ -4,7 +4,7 @@ use std::{
     io::{BufRead, BufReader},
 };
 
-pub fn solution(second: bool) -> i32 {
+pub fn _solution(second: bool) -> i32 {
     let file = File::open("./src/twenty_two/day7/input.txt").unwrap();
     let reader = BufReader::new(file);
     let mut pwd: Vec<String> = vec![];
